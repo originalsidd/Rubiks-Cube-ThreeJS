@@ -2,4 +2,6 @@
 
 First Version of implementation ✅
 
-Second Version coming soon
+Second Version done (FInal Version) ✅
+
+UI Implementation
