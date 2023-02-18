@@ -340,12 +340,19 @@ const cen6 = new THREE.Mesh(geometry, cenmat6);
 cen6.position.set(1, 0, 0);
 scene.add(cen6);
 
-const temp1 = new THREE.Group();
-const temp2 = new THREE.Group();
-const temp3 = new THREE.Group();
-const temp4 = new THREE.Group();
-const temp5 = new THREE.Group();
-const temp6 = new THREE.Group();
+const cenmat7 = [
+    new THREE.MeshBasicMaterial({ color: 'black' }),
+    new THREE.MeshBasicMaterial({ color: 'black' }),
+    new THREE.MeshBasicMaterial({ color: 'black' }),
+    new THREE.MeshBasicMaterial({ color: 'black' }),
+    new THREE.MeshBasicMaterial({ color: 'black' }),
+    new THREE.MeshBasicMaterial({ color: 'black' }),
+];
+const cen7 = new THREE.Mesh(geometry, cenmat7);
+cen7.position.set(0, 0, 0);
+scene.add(cen7);
+
+const temp = [];
 
 /**
  * Array
@@ -377,6 +384,7 @@ const meshes = [
     cen4,
     cen5,
     cen6,
+    cen7,
 ];
 
 /**
@@ -427,6 +435,26 @@ const plane6 = new THREE.Mesh(
 plane6.rotation.x = Math.PI / 2;
 plane6.position.y = -1;
 scene.add(plane6);
+
+const plane7 = new THREE.Mesh(
+    new THREE.PlaneBufferGeometry(5, 5),
+    new THREE.MeshBasicMaterial({ wireframe: true })
+);
+plane7.rotation.x = Math.PI / 2;
+scene.add(plane7);
+
+const plane8 = new THREE.Mesh(
+    new THREE.PlaneBufferGeometry(5, 5),
+    new THREE.MeshBasicMaterial({ wireframe: true })
+);
+plane8.rotation.y = Math.PI / 2;
+scene.add(plane8);
+
+const plane9 = new THREE.Mesh(
+    new THREE.PlaneBufferGeometry(5, 5),
+    new THREE.MeshBasicMaterial({ wireframe: true })
+);
+scene.add(plane9);
 
 /**
  * Sizes
@@ -505,6 +533,9 @@ let status3 = {};
 let status4 = {};
 let status5 = {};
 let status6 = {};
+let status7 = {};
+let status8 = {};
+let status9 = {};
 
 let intersectsPlane1 = (mesh) => {
     const target = new THREE.Vector3();
@@ -556,21 +587,46 @@ let intersectsPlane6 = (mesh) => {
     }
     return false;
 };
+let intersectsPlane7 = (mesh) => {
+    const target = new THREE.Vector3();
+    mesh.getWorldPosition(target);
+    if (Math.abs(target.y - plane7.position.y) < 0.01) {
+        return true;
+    }
+    return false;
+};
+let intersectsPlane8 = (mesh) => {
+    const target = new THREE.Vector3();
+    mesh.getWorldPosition(target);
+    if (Math.abs(target.z - plane8.position.z) < 0.01) {
+        return true;
+    }
+    return false;
+};
+let intersectsPlane9 = (mesh) => {
+    const target = new THREE.Vector3();
+    mesh.getWorldPosition(target);
+    if (Math.abs(target.x - plane9.position.x) < 0.01) {
+        return true;
+    }
+    return false;
+};
 
 /**
  * Cube Rotation
  */
 
 const moveR = () => {
-    for (let i of temp1.children) {
-        scene.add(i);
-    }
-    temp1.clear();
-    scene.remove(temp1);
+    temp.length = 0;
     Object.keys(status1).forEach((key, index) => {
-        if (status1[key] == true) temp1.add(meshes[index]);
+        if (status1[key] == true) {
+            if (index >= 20) {
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
     });
-    scene.add(temp1);
     flag1 = true;
 };
 parameters.R = () => {
@@ -578,15 +634,16 @@ parameters.R = () => {
 };
 
 const moveF = () => {
-    for (let i of temp2.children) {
-        scene.add(i);
-    }
-    temp2.clear();
-    scene.remove(temp2);
+    temp.length = 0;
     Object.keys(status2).forEach((key, index) => {
-        if (status2[key] == true) temp2.add(meshes[index]);
+        if (status2[key] == true) {
+            if (index >= 20) {
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
     });
-    scene.add(temp2);
     flag2 = true;
 };
 
@@ -595,14 +652,16 @@ parameters.F = () => {
 };
 
 const moveU = () => {
-    for (let i of temp3.children) {
-        scene.add(i);
-    }
-    temp3.clear();
+    temp.length = 0;
     Object.keys(status3).forEach((key, index) => {
-        if (status3[key] == true) temp3.add(meshes[index]);
+        if (status3[key] == true) {
+            if (index >= 20) {
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
     });
-    scene.add(temp3);
     flag3 = true;
 };
 
@@ -611,14 +670,16 @@ parameters.U = () => {
 };
 
 const moveL = () => {
-    for (let i of temp4.children) {
-        scene.add(i);
-    }
-    temp4.clear();
+    temp.length = 0;
     Object.keys(status4).forEach((key, index) => {
-        if (status4[key] == true) temp4.add(meshes[index]);
+        if (status4[key] == true) {
+            if (index >= 20) {
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
     });
-    scene.add(temp4);
     flag4 = true;
 };
 
@@ -627,14 +688,16 @@ parameters.L = () => {
 };
 
 const moveB = () => {
-    for (let i of temp5.children) {
-        scene.add(i);
-    }
-    temp5.clear();
+    temp.length = 0;
     Object.keys(status5).forEach((key, index) => {
-        if (status5[key] == true) temp5.add(meshes[index]);
+        if (status5[key] == true) {
+            if (index >= 20) {
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
     });
-    scene.add(temp5);
     flag5 = true;
 };
 
@@ -643,14 +706,16 @@ parameters.B = () => {
 };
 
 const moveD = () => {
-    for (let i of temp6.children) {
-        scene.add(i);
-    }
-    temp6.clear();
+    temp.length = 0;
     Object.keys(status6).forEach((key, index) => {
-        if (status6[key] == true) temp6.add(meshes[index]);
+        if (status6[key] == true) {
+            if (index >= 20) {
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
     });
-    scene.add(temp6);
     flag6 = true;
 };
 
@@ -658,12 +723,72 @@ parameters.D = () => {
     moveD();
 };
 
-const moveR1 = () => {
-    temp1.clear();
-    Object.keys(status1).forEach((key, index) => {
-        if (status1[key] == true) temp1.add(meshes[index]);
+const moveE = () => {
+    temp.length = 0;
+    Object.keys(status7).forEach((key, index) => {
+        if (status7[key] == true) {
+            if (index == 26) {
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
     });
-    scene.add(temp1);
+    flag7 = true;
+};
+
+parameters.E = () => {
+    moveE();
+};
+
+const moveM = () => {
+    temp.length = 0;
+    Object.keys(status9).forEach((key, index) => {
+        if (status9[key] == true) {
+            if (index == 26) {
+                console.log(1);
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
+    });
+    flag9 = true;
+};
+
+parameters.M = () => {
+    moveM();
+};
+
+const moveS = () => {
+    temp.length = 0;
+    Object.keys(status8).forEach((key, index) => {
+        if (status8[key] == true) {
+            if (index == 26) {
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
+    });
+    flag8 = true;
+};
+
+parameters.S = () => {
+    moveS();
+};
+
+const moveR1 = () => {
+    temp.length = 0;
+    Object.keys(status1).forEach((key, index) => {
+        if (status1[key] == true) {
+            if (index >= 20) {
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
+    });
     flag11 = true;
 };
 parameters.R1 = () => {
@@ -671,11 +796,16 @@ parameters.R1 = () => {
 };
 
 const moveF1 = () => {
-    temp2.clear();
+    temp.length = 0;
     Object.keys(status2).forEach((key, index) => {
-        if (status2[key] == true) temp2.add(meshes[index]);
+        if (status2[key] == true) {
+            if (index >= 20) {
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
     });
-    scene.add(temp2);
     flag22 = true;
 };
 
@@ -684,10 +814,16 @@ parameters.F1 = () => {
 };
 
 const moveU1 = () => {
+    temp.length = 0;
     Object.keys(status3).forEach((key, index) => {
-        if (status3[key] == true) temp3.add(meshes[index]);
+        if (status3[key] == true) {
+            if (index >= 20) {
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
     });
-    scene.add(temp3);
     flag33 = true;
 };
 
@@ -696,10 +832,16 @@ parameters.U1 = () => {
 };
 
 const moveL1 = () => {
+    temp.length = 0;
     Object.keys(status4).forEach((key, index) => {
-        if (status4[key] == true) temp4.add(meshes[index]);
+        if (status4[key] == true) {
+            if (index >= 20) {
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
     });
-    scene.add(temp4);
     flag44 = true;
 };
 
@@ -708,10 +850,16 @@ parameters.L1 = () => {
 };
 
 const moveB1 = () => {
+    temp.length = 0;
     Object.keys(status5).forEach((key, index) => {
-        if (status5[key] == true) temp5.add(meshes[index]);
+        if (status5[key] == true) {
+            if (index >= 20) {
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
     });
-    scene.add(temp5);
     flag55 = true;
 };
 
@@ -720,15 +868,94 @@ parameters.B1 = () => {
 };
 
 const moveD1 = () => {
+    temp.length = 0;
     Object.keys(status6).forEach((key, index) => {
-        if (status6[key] == true) temp6.add(meshes[index]);
+        if (status6[key] == true) {
+            if (index >= 20) {
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
     });
-    scene.add(temp6);
     flag66 = true;
 };
 
 parameters.D1 = () => {
     moveD1();
+};
+
+const moveE1 = () => {
+    temp.length = 0;
+    Object.keys(status7).forEach((key, index) => {
+        if (status7[key] == true) {
+            if (index == 26) {
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
+    });
+    flag77 = true;
+};
+
+parameters.E1 = () => {
+    moveE1();
+};
+
+const moveM1 = () => {
+    temp.length = 0;
+    Object.keys(status9).forEach((key, index) => {
+        if (status9[key] == true) {
+            if (index == 26) {
+                console.log(1);
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
+    });
+    flag99 = true;
+};
+
+parameters.M1 = () => {
+    moveM1();
+};
+
+const moveS1 = () => {
+    temp.length = 0;
+    Object.keys(status8).forEach((key, index) => {
+        if (status8[key] == true) {
+            if (index == 26) {
+                temp.unshift(meshes[index]);
+            } else {
+                temp.push(meshes[index]);
+            }
+        }
+    });
+    flag88 = true;
+};
+
+parameters.S1 = () => {
+    moveS1();
+};
+
+parameters.X = () => {
+    moveL1();
+    setTimeout(() => moveM1(), 1000);
+    setTimeout(() => moveR(), 2000);
+};
+
+parameters.Y = () => {
+    moveU();
+    setTimeout(() => moveE1(), 1000);
+    setTimeout(() => moveD1(), 2000);
+};
+
+parameters.Z = () => {
+    moveF();
+    setTimeout(() => moveS(), 1000);
+    setTimeout(() => moveB1(), 2000);
 };
 
 gui.add(parameters, 'R');
@@ -737,36 +964,34 @@ gui.add(parameters, 'U');
 gui.add(parameters, 'L');
 gui.add(parameters, 'B');
 gui.add(parameters, 'D');
+gui.add(parameters, 'M');
+gui.add(parameters, 'E');
+gui.add(parameters, 'S');
+gui.add(parameters, 'X');
+gui.add(parameters, 'Y');
+gui.add(parameters, 'Z');
 gui.add(parameters, 'R1');
 gui.add(parameters, 'F1');
 gui.add(parameters, 'U1');
 gui.add(parameters, 'L1');
 gui.add(parameters, 'B1');
 gui.add(parameters, 'D1');
+gui.add(parameters, 'M1');
+gui.add(parameters, 'E1');
+gui.add(parameters, 'S1');
 
 /**
  * Animate
  */
-let c1 = 1;
-let c2 = 1;
-let c3 = 1;
-let c4 = 1;
-let c5 = 1;
-let c6 = 1;
-
-let c11 = -1;
-let c22 = -1;
-let c33 = -1;
-let c44 = -1;
-let c55 = -1;
-let c66 = -1;
-
 let flag1 = false;
 let flag2 = false;
 let flag3 = false;
 let flag4 = false;
 let flag5 = false;
 let flag6 = false;
+let flag7 = false;
+let flag8 = false;
+let flag9 = false;
 
 let flag11 = false;
 let flag22 = false;
@@ -774,6 +999,20 @@ let flag33 = false;
 let flag44 = false;
 let flag55 = false;
 let flag66 = false;
+let flag77 = false;
+let flag88 = false;
+let flag99 = false;
+
+let angle1 = 0;
+let angle2 = 0;
+let angle3 = 0;
+let angle4 = 0;
+let angle5 = 0;
+let angle6 = 0;
+let angle7 = 0;
+let angle8 = 0;
+let angle9 = 0;
+
 const clock = new THREE.Clock();
 let oldElapsedTime = 0;
 
@@ -809,6 +1048,7 @@ const tick = () => {
         cen4: intersectsPlane1(cen4),
         cen5: intersectsPlane1(cen5),
         cen6: intersectsPlane1(cen6),
+        cen7: intersectsPlane1(cen7),
     };
     // console.log(status1);
 
@@ -839,6 +1079,7 @@ const tick = () => {
         cen4: intersectsPlane2(cen4),
         cen5: intersectsPlane2(cen5),
         cen6: intersectsPlane2(cen6),
+        cen7: intersectsPlane2(cen7),
     };
 
     status3 = {
@@ -868,6 +1109,7 @@ const tick = () => {
         cen4: intersectsPlane3(cen4),
         cen5: intersectsPlane3(cen5),
         cen6: intersectsPlane3(cen6),
+        cen7: intersectsPlane3(cen7),
     };
 
     status4 = {
@@ -897,6 +1139,7 @@ const tick = () => {
         cen4: intersectsPlane4(cen4),
         cen5: intersectsPlane4(cen5),
         cen6: intersectsPlane4(cen6),
+        cen7: intersectsPlane4(cen7),
     };
 
     status5 = {
@@ -926,6 +1169,7 @@ const tick = () => {
         cen4: intersectsPlane5(cen4),
         cen5: intersectsPlane5(cen5),
         cen6: intersectsPlane5(cen6),
+        cen7: intersectsPlane5(cen7),
     };
 
     status6 = {
@@ -955,126 +1199,330 @@ const tick = () => {
         cen4: intersectsPlane6(cen4),
         cen5: intersectsPlane6(cen5),
         cen6: intersectsPlane6(cen6),
+        cen7: intersectsPlane6(cen7),
     };
-    // console.log(status1);
+
+    status7 = {
+        corner1: intersectsPlane7(corner1),
+        corner2: intersectsPlane7(corner2),
+        corner3: intersectsPlane7(corner3),
+        corner4: intersectsPlane7(corner4),
+        corner5: intersectsPlane7(corner5),
+        corner6: intersectsPlane7(corner6),
+        corner7: intersectsPlane7(corner7),
+        corner8: intersectsPlane7(corner8),
+        edge1: intersectsPlane7(edge1),
+        edge2: intersectsPlane7(edge2),
+        edge3: intersectsPlane7(edge3),
+        edge4: intersectsPlane7(edge4),
+        edge5: intersectsPlane7(edge5),
+        edge6: intersectsPlane7(edge6),
+        edge7: intersectsPlane7(edge7),
+        edge8: intersectsPlane7(edge8),
+        edge9: intersectsPlane7(edge9),
+        edge10: intersectsPlane7(edge10),
+        edge11: intersectsPlane7(edge11),
+        edge12: intersectsPlane7(edge12),
+        cen1: intersectsPlane7(cen1),
+        cen2: intersectsPlane7(cen2),
+        cen3: intersectsPlane7(cen3),
+        cen4: intersectsPlane7(cen4),
+        cen5: intersectsPlane7(cen5),
+        cen6: intersectsPlane7(cen6),
+        cen7: intersectsPlane7(cen7),
+    };
+
+    status8 = {
+        corner1: intersectsPlane8(corner1),
+        corner2: intersectsPlane8(corner2),
+        corner3: intersectsPlane8(corner3),
+        corner4: intersectsPlane8(corner4),
+        corner5: intersectsPlane8(corner5),
+        corner6: intersectsPlane8(corner6),
+        corner7: intersectsPlane8(corner7),
+        corner8: intersectsPlane8(corner8),
+        edge1: intersectsPlane8(edge1),
+        edge2: intersectsPlane8(edge2),
+        edge3: intersectsPlane8(edge3),
+        edge4: intersectsPlane8(edge4),
+        edge5: intersectsPlane8(edge5),
+        edge6: intersectsPlane8(edge6),
+        edge7: intersectsPlane8(edge7),
+        edge8: intersectsPlane8(edge8),
+        edge9: intersectsPlane8(edge9),
+        edge10: intersectsPlane8(edge10),
+        edge11: intersectsPlane8(edge11),
+        edge12: intersectsPlane8(edge12),
+        cen1: intersectsPlane8(cen1),
+        cen2: intersectsPlane8(cen2),
+        cen3: intersectsPlane8(cen3),
+        cen4: intersectsPlane8(cen4),
+        cen5: intersectsPlane8(cen5),
+        cen6: intersectsPlane8(cen6),
+        cen7: intersectsPlane8(cen7),
+    };
+
+    status9 = {
+        corner1: intersectsPlane9(corner1),
+        corner2: intersectsPlane9(corner2),
+        corner3: intersectsPlane9(corner3),
+        corner4: intersectsPlane9(corner4),
+        corner5: intersectsPlane9(corner5),
+        corner6: intersectsPlane9(corner6),
+        corner7: intersectsPlane9(corner7),
+        corner8: intersectsPlane9(corner8),
+        edge1: intersectsPlane9(edge1),
+        edge2: intersectsPlane9(edge2),
+        edge3: intersectsPlane9(edge3),
+        edge4: intersectsPlane9(edge4),
+        edge5: intersectsPlane9(edge5),
+        edge6: intersectsPlane9(edge6),
+        edge7: intersectsPlane9(edge7),
+        edge8: intersectsPlane9(edge8),
+        edge9: intersectsPlane9(edge9),
+        edge10: intersectsPlane9(edge10),
+        edge11: intersectsPlane9(edge11),
+        edge12: intersectsPlane9(edge12),
+        cen1: intersectsPlane9(cen1),
+        cen2: intersectsPlane9(cen2),
+        cen3: intersectsPlane9(cen3),
+        cen4: intersectsPlane9(cen4),
+        cen5: intersectsPlane9(cen5),
+        cen6: intersectsPlane9(cen6),
+        cen7: intersectsPlane9(cen7),
+    };
 
     if (flag1) {
-        temp1.rotation.x += 4 * deltaTime;
-        if (Math.abs(temp1.rotation.x - (c1 * Math.PI) / 2) < 0.12) {
-            temp1.rotation.x = (c1 * Math.PI) / 2;
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationX(
+                -THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle1 += 3 / 9;
+        });
+        if ((Math.round(angle1 * 100) / 100) % 90.0 == 0) {
             flag1 = false;
-            c1 += 1;
-            c11 += 1;
         }
     }
 
     if (flag2) {
-        temp2.rotation.z += 4 * deltaTime;
-        if (Math.abs(temp2.rotation.z - (c2 * Math.PI) / 2) < 0.12) {
-            temp2.rotation.z = (c2 * Math.PI) / 2;
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationZ(
+                -THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle2 += 3 / 9;
+        });
+        if ((Math.round(angle2 * 100) / 100) % 90.0 == 0) {
             flag2 = false;
-            c2 += 1;
-            c22 += 1;
         }
     }
 
     if (flag3) {
-        temp3.rotation.y += 4 * deltaTime;
-        if (Math.abs(temp3.rotation.y - (c3 * Math.PI) / 2) < 0.12) {
-            temp3.rotation.y = (c3 * Math.PI) / 2;
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationY(
+                -THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle3 += 3 / 9;
+        });
+        if ((Math.round(angle3 * 100) / 100) % 90.0 == 0) {
             flag3 = false;
-            c3 += 1;
-            c33 += 1;
         }
     }
 
     if (flag4) {
-        temp4.rotation.x += 4 * deltaTime;
-        if (Math.abs(temp4.rotation.x - (c4 * Math.PI) / 2) < 0.12) {
-            temp4.rotation.x = (c4 * Math.PI) / 2;
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationX(
+                THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle4 += 3 / 9;
+        });
+        if ((Math.round(angle4 * 100) / 100) % 90.0 == 0) {
             flag4 = false;
-            c4 += 1;
-            c44 += 1;
         }
     }
 
     if (flag5) {
-        temp5.rotation.z += 4 * deltaTime;
-        if (Math.abs(temp5.rotation.z - (c5 * Math.PI) / 2) < 0.12) {
-            temp5.rotation.z = (c5 * Math.PI) / 2;
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationZ(
+                THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle5 += 3 / 9;
+        });
+        if ((Math.round(angle5 * 100) / 100) % 90.0 == 0) {
             flag5 = false;
-            c5 += 1;
-            c55 += 1;
         }
     }
 
     if (flag6) {
-        temp6.rotation.y += 4 * deltaTime;
-        if (Math.abs(temp6.rotation.y - (c6 * Math.PI) / 2) < 0.12) {
-            temp6.rotation.y = (c6 * Math.PI) / 2;
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationY(
+                THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle6 += 3 / 9;
+        });
+        if ((Math.round(angle6 * 100) / 100) % 90.0 == 0) {
             flag6 = false;
-            c6 += 1;
-            c66 += 1;
+        }
+    }
+
+    if (flag7) {
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationY(
+                THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle7 += 3 / 9;
+        });
+        if ((Math.round(angle7 * 100) / 100) % 90.0 == 0) {
+            flag7 = false;
+        }
+    }
+
+    if (flag8) {
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationZ(
+                -THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle8 += 3 / 9;
+        });
+        if ((Math.round(angle8 * 100) / 100) % 90.0 == 0) {
+            flag8 = false;
+        }
+    }
+
+    if (flag9) {
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationX(
+                THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle9 += 3 / 9;
+        });
+        if ((Math.round(angle9 * 100) / 100) % 90.0 == 0) {
+            flag9 = false;
         }
     }
 
     if (flag11) {
-        temp1.rotation.x -= 4 * deltaTime;
-        if (Math.abs(temp1.rotation.x - (c11 * Math.PI) / 2) < 0.12) {
-            temp1.rotation.x = (c11 * Math.PI) / 2;
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationX(
+                THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle1 += 3 / 9;
+        });
+        if ((Math.round(angle1 * 100) / 100) % 90.0 == 0) {
             flag11 = false;
-            c1 -= 1;
-            c11 -= 1;
         }
     }
 
     if (flag22) {
-        temp2.rotation.z -= 4 * deltaTime;
-        if (Math.abs(temp2.rotation.z - (c22 * Math.PI) / 2) < 0.12) {
-            temp2.rotation.z = (c22 * Math.PI) / 2;
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationZ(
+                THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle2 += 3 / 9;
+        });
+        if ((Math.round(angle2 * 100) / 100) % 90.0 == 0) {
             flag22 = false;
-            c2 -= 1;
-            c22 -= 1;
         }
     }
 
     if (flag33) {
-        temp3.rotation.y -= 4 * deltaTime;
-        if (Math.abs(temp3.rotation.y - (c33 * Math.PI) / 2) < 0.12) {
-            temp3.rotation.y = (c33 * Math.PI) / 2;
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationY(
+                THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle3 += 3 / 9;
+        });
+        if ((Math.round(angle3 * 100) / 100) % 90.0 == 0) {
             flag33 = false;
-            c3 -= 1;
-            c33 -= 1;
         }
     }
 
     if (flag44) {
-        temp4.rotation.x -= 4 * deltaTime;
-        if (Math.abs(temp4.rotation.x - (c44 * Math.PI) / 2) < 0.12) {
-            temp4.rotation.x = (c44 * Math.PI) / 2;
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationX(
+                -THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle4 += 3 / 9;
+        });
+        if ((Math.round(angle4 * 100) / 100) % 90.0 == 0) {
             flag44 = false;
-            c4 -= 1;
-            c44 -= 1;
         }
     }
 
     if (flag55) {
-        temp5.rotation.z -= 4 * deltaTime;
-        if (Math.abs(temp5.rotation.z - (c55 * Math.PI) / 2) < 0.12) {
-            temp5.rotation.z = (c55 * Math.PI) / 2;
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationZ(
+                -THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle5 += 3 / 9;
+        });
+        if ((Math.round(angle5 * 100) / 100) % 90.0 == 0) {
             flag55 = false;
-            c5 -= 1;
-            c55 -= 1;
         }
     }
 
     if (flag66) {
-        temp6.rotation.y -= 4 * deltaTime;
-        if (Math.abs(temp6.rotation.y - (c66 * Math.PI) / 2) < 0.12) {
-            temp6.rotation.y = (c66 * Math.PI) / 2;
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationY(
+                -THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle6 += 3 / 9;
+        });
+        if ((Math.round(angle6 * 100) / 100) % 90.0 == 0) {
             flag66 = false;
-            c6 -= 1;
-            c66 -= 1;
+        }
+    }
+
+    if (flag77) {
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationY(
+                -THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle7 += 3 / 9;
+        });
+        if ((Math.round(angle7 * 100) / 100) % 90.0 == 0) {
+            flag77 = false;
+        }
+    }
+
+    if (flag88) {
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationZ(
+                THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle8 += 3 / 9;
+        });
+        if ((Math.round(angle8 * 100) / 100) % 90.0 == 0) {
+            flag88 = false;
+        }
+    }
+
+    if (flag99) {
+        temp.forEach((mesh) => {
+            const matrix = new THREE.Matrix4().makeRotationX(
+                -THREE.Math.degToRad(3)
+            );
+            mesh.applyMatrix4(matrix);
+            angle9 += 3 / 9;
+        });
+        if ((Math.round(angle9 * 100) / 100) % 90.0 == 0) {
+            flag99 = false;
         }
     }
 
