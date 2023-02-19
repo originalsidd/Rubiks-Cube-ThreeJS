@@ -19,7 +19,9 @@ _No Affiliation intended to "Rubik's Brands"_
 
 <img src="https://github.com/originalsidd/Rubiks-Cube-ThreeJS/blob/main/static/cube1.png?raw=true"  />
 <br></br>
+
 ### Mobile
+
 <center>
 <span>
 <img src="https://github.com/originalsidd/Rubiks-Cube-ThreeJS/blob/main/static/cube3.jpg?raw=true" width=200 alt=Cube2"/>&nbsp;<img src="https://github.com/originalsidd/Rubiks-Cube-ThreeJS/blob/main/static/cube2.jpg?raw=true" width=200 alt=Cube3"/>
