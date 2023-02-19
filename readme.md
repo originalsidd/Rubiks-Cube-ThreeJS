@@ -2,7 +2,7 @@
 
 Rubiks Cube Three JS is the Three JS 3D implementation of Magic Cube using a unique approach.
 
-Visit Live App:
+Visit Live App: https://rubiks-cube-threejs.vercel.app/
 
 _No Affiliation intended to "Rubik's Brands"_
 
