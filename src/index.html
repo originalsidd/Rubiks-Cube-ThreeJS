@@ -7,5 +7,167 @@
 </head>
 <body>
     <canvas class="webgl"></canvas>
+    <div class="title">
+        <font color="red">R</font>
+        <font color="yellow">U</font>
+        <font color="white">B</font>
+        <font color="green">I</font>
+        <font color="blue">K</font>
+        <font color="orange">'</font>
+        <font color="orange">S</font>
+        &nbsp;CUBE
+    </div>
+    <div class="message">
+        Drag around to view the cube
+    </div>
+    <div class="overlay">
+        <div class="bt-row">
+            <button class="bt-pushable" role="button" id="X">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;X&nbsp;</span>
+            </button>
+            <button class="bt-pushable" role="button" id="Y">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;Y&nbsp;</span>
+            </button>
+            <button class="bt-pushable" role="button" id="Z">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;Z&nbsp;</span>
+            </button>
+            <button class="bt-pushable" role="button" id="M">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;M&nbsp;</span>
+            </button>
+            <button class="bt-pushable" role="button" id="E">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;E&nbsp;</span>
+            </button>
+            <button class="bt-pushable" role="button" id="S">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;S&nbsp;</span>
+            </button>
+            <button class="bt-pushable" role="button" id="R">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;R&nbsp;</span>
+            </button>
+            <button class="bt-pushable" role="button" id="L">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;L&nbsp;</span>
+            </button>
+            <button class="bt-pushable" role="button" id="U">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;U&nbsp;</span>
+            </button>
+            <button class="bt-pushable" role="button" id="D">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;D&nbsp;</span>
+            </button>
+            <button class="bt-pushable" role="button" id="F">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;F&nbsp;</span>
+            </button>
+            <button class="bt-pushable" role="button" id="B">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;B&nbsp;</span>
+            </button>
+        </div>
+        <div class="bt-row">
+            <button class="bt-pushable" role="button" id="X1">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;X'</span>
+            </button>
+            <button class="bt-pushable" role="button" id="Y1">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;Y'</span>
+            </button>
+            <button class="bt-pushable" role="button" id="Z1">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;Z'</span>
+            </button>
+            <button class="bt-pushable" role="button" id="M1">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;M'</span>
+            </button>
+            <button class="bt-pushable" role="button" id="E1">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;E'</span>
+            </button>
+            <button class="bt-pushable" role="button" id="S1">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;S'</span>
+            </button>
+            <button class="bt-pushable" role="button" id="R1">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;R'</span>
+            </button>
+            <button class="bt-pushable" role="button" id="L1">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;L'</span>
+            </button>
+            <button class="bt-pushable" role="button" id="U1">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;U'</span>
+            </button>
+            <button class="bt-pushable" role="button" id="D1">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;D'</span>
+            </button>
+            <button class="bt-pushable" role="button" id="F1">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;F'</span>
+            </button>
+            <button class="bt-pushable" role="button" id="B1">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge"></span>
+                <span class="bt-front text">&nbsp;B'</span>
+            </button>
+        </div>
+        <div class="footer1">
+            <button class="bt-pushable" role="button" id="RC">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge bgc"></span>
+                <span class="bt-front bg text">Reset  Cam</span>
+            </button>
+        </div>
+        <div class="footer2">
+            <a href="mailto:originalsidd.tech@gmail.com">
+                <button class="bt-pushable" role="button" id="RB">
+                    <span class="bt-shadow"></span>
+                    <span class="bt-edge bgc"></span>
+                    <span class="bt-front bg text">Report Bug</span>
+                </button>
+            </a>
+        </div>
+        <div class="footer3">
+            <button class="bt-pushable" role="button" id="SH">
+                <span class="bt-shadow"></span>
+                <span class="bt-edge bgc"></span>
+                <span class="bt-front bg text sh">Shuffle</span>
+            </button>
+        </div>
+    </div>
 </body>
 </html>
