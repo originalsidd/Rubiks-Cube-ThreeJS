@@ -15,6 +15,12 @@ _No Affiliation intended to "Rubik's Brands"_
 
 ## Screenshots
 
+<img src="https://github.com/originalsidd/Rubiks-Cube-ThreeJS/blob/main/static/cube1.png?raw=true" />
+<center>
+<img src="https://github.com/originalsidd/Rubiks-Cube-ThreeJS/blob/main/static/cube3.jpg?raw=true" width=100/>
+<img src="https://github.com/originalsidd/Rubiks-Cube-ThreeJS/blob/main/static/cube2.jpg?raw=true" width=100 />
+</center>
+
 ## Controls
 
 -   All the standard cube moves are represented in terms of buttons
