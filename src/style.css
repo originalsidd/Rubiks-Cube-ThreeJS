@@ -106,7 +106,7 @@ body {
 .bt-front {
 	display: block;
 	position: relative;
-	padding: 10px;
+	padding: 9px;
 	border-radius: 12px;
 	font-size: 1rem;
 	color: white;
@@ -211,16 +211,12 @@ body {
 
 .footer3 {
 	position: fixed;
-	bottom: 3px;
+	bottom: 0px;
 	z-index: 999;
 	text-align: center;
 	font-size: 1rem;
+	color: rgb(208, 208, 208);
 }
-
-.sh {
-	font-size: 0.5rem;
-}
-
 
 .bgc {
 	background: linear-gradient(to left,
@@ -232,4 +228,27 @@ body {
 
 .bg {
 	background: hsl(198, 95%, 43%) 8%;
+}
+
+a {
+	color: inherit;
+	font-size: 1rem;
+}
+
+@media (max-width: 850px) {
+	a {
+		font-size: 0.8rem;
+	}
+}
+
+@media (max-width: 500px) {
+	a {
+		font-size: 0.6rem;
+	}
+}
+
+@media (max-width: 450px) {
+	a {
+		font-size: 0.5rem;
+	}
 }
