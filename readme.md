@@ -9,9 +9,10 @@ _No Affiliation intended to "Rubik's Brands"_
 ## Timeline
 
 -   First Version of implementation ✅
--   Second Version done (FInal Version) ✅
+-   Second Version done (Final Version) ✅
 -   UI Implementation ✅
 -   Final Product Release! ✅
+-   Production Bug Fixed ✅
 
 ## Screenshots
 

@@ -375,75 +375,6 @@ const meshes = [
     cen6,
 ];
 
-// /**
-//  * Plane
-//  */
-// const plane1 = new THREE.Mesh(
-//     new THREE.PlaneBufferGeometry(5, 5),
-//     new THREE.MeshBasicMaterial({ wireframe: true })
-// );
-// plane1.rotation.y = Math.PI / 2;
-// plane1.position.x = 1;
-// scene.add(plane1);
-
-// const plane2 = new THREE.Mesh(
-//     new THREE.PlaneBufferGeometry(5, 5),
-//     new THREE.MeshBasicMaterial({ wireframe: true })
-// );
-// plane2.position.z = 1;
-// scene.add(plane2);
-
-// const plane3 = new THREE.Mesh(
-//     new THREE.PlaneBufferGeometry(5, 5),
-//     new THREE.MeshBasicMaterial({ wireframe: true })
-// );
-// plane3.rotation.x = Math.PI / 2;
-// plane3.position.y = 1;
-// scene.add(plane3);
-
-// const plane4 = new THREE.Mesh(
-//     new THREE.PlaneBufferGeometry(5, 5),
-//     new THREE.MeshBasicMaterial({ wireframe: true })
-// );
-// plane4.rotation.y = Math.PI / 2;
-// plane4.position.x = -1;
-// scene.add(plane4);
-
-// const plane5 = new THREE.Mesh(
-//     new THREE.PlaneBufferGeometry(5, 5),
-//     new THREE.MeshBasicMaterial({ wireframe: true })
-// );
-// plane5.position.z = -1;
-// scene.add(plane5);
-
-// const plane6 = new THREE.Mesh(
-//     new THREE.PlaneBufferGeometry(5, 5),
-//     new THREE.MeshBasicMaterial({ wireframe: true })
-// );
-// plane6.rotation.x = Math.PI / 2;
-// plane6.position.y = -1;
-// scene.add(plane6);
-
-// const plane7 = new THREE.Mesh(
-//     new THREE.PlaneBufferGeometry(5, 5),
-//     new THREE.MeshBasicMaterial({ wireframe: true })
-// );
-// plane7.rotation.x = Math.PI / 2;
-// scene.add(plane7);
-
-// const plane8 = new THREE.Mesh(
-//     new THREE.PlaneBufferGeometry(5, 5),
-//     new THREE.MeshBasicMaterial({ wireframe: true })
-// );
-// plane8.rotation.y = Math.PI / 2;
-// scene.add(plane8);
-
-// const plane9 = new THREE.Mesh(
-//     new THREE.PlaneBufferGeometry(5, 5),
-//     new THREE.MeshBasicMaterial({ wireframe: true })
-// );
-// scene.add(plane9);
-
 /**
  * Sizes
  */
@@ -605,7 +536,10 @@ let intersectsPlane9 = (mesh) => {
  * Cube Rotation
  */
 
+const gapTime = 200;
+
 const moveR = () => {
+    gap1[0] = true;
     temp.length = 0;
     Object.keys(status1).forEach((key, index) => {
         if (status1[key]) temp.push(meshes[index]);
@@ -617,6 +551,7 @@ parameters.R = () => {
 };
 
 const moveF = () => {
+    gap1[1] = true;
     temp.length = 0;
     Object.keys(status2).forEach((key, index) => {
         if (status2[key]) temp.push(meshes[index]);
@@ -629,6 +564,7 @@ parameters.F = () => {
 };
 
 const moveU = () => {
+    gap1[2] = true;
     temp.length = 0;
     Object.keys(status3).forEach((key, index) => {
         if (status3[key]) temp.push(meshes[index]);
@@ -641,6 +577,7 @@ parameters.U = () => {
 };
 
 const moveL = () => {
+    gap1[3] = true;
     temp.length = 0;
     Object.keys(status4).forEach((key, index) => {
         if (status4[key]) temp.push(meshes[index]);
@@ -653,6 +590,7 @@ parameters.L = () => {
 };
 
 const moveB = () => {
+    gap1[4] = true;
     temp.length = 0;
     Object.keys(status5).forEach((key, index) => {
         if (status5[key]) temp.push(meshes[index]);
@@ -665,6 +603,7 @@ parameters.B = () => {
 };
 
 const moveD = () => {
+    gap1[5] = true;
     temp.length = 0;
     Object.keys(status6).forEach((key, index) => {
         if (status6[key]) temp.push(meshes[index]);
@@ -677,6 +616,7 @@ parameters.D = () => {
 };
 
 const moveE = () => {
+    gap1[6] = true;
     temp.length = 0;
     Object.keys(status7).forEach((key, index) => {
         if (status7[key]) temp.push(meshes[index]);
@@ -689,6 +629,7 @@ parameters.E = () => {
 };
 
 const moveM = () => {
+    gap1[7] = true;
     temp.length = 0;
     Object.keys(status9).forEach((key, index) => {
         if (status9[key]) temp.push(meshes[index]);
@@ -701,6 +642,7 @@ parameters.M = () => {
 };
 
 const moveS = () => {
+    gap1[8] = true;
     temp.length = 0;
     Object.keys(status8).forEach((key, index) => {
         if (status8[key]) temp.push(meshes[index]);
@@ -713,6 +655,7 @@ parameters.S = () => {
 };
 
 const moveR1 = () => {
+    gap2[0] = true;
     temp.length = 0;
     Object.keys(status1).forEach((key, index) => {
         if (status1[key]) temp.push(meshes[index]);
@@ -724,6 +667,7 @@ parameters.R1 = () => {
 };
 
 const moveF1 = () => {
+    gap2[1] = true;
     temp.length = 0;
     Object.keys(status2).forEach((key, index) => {
         if (status2[key]) temp.push(meshes[index]);
@@ -736,6 +680,7 @@ parameters.F1 = () => {
 };
 
 const moveU1 = () => {
+    gap2[2] = true;
     temp.length = 0;
     Object.keys(status3).forEach((key, index) => {
         if (status3[key]) temp.push(meshes[index]);
@@ -748,6 +693,7 @@ parameters.U1 = () => {
 };
 
 const moveL1 = () => {
+    gap2[3] = true;
     temp.length = 0;
     Object.keys(status4).forEach((key, index) => {
         if (status4[key]) temp.push(meshes[index]);
@@ -760,6 +706,7 @@ parameters.L1 = () => {
 };
 
 const moveB1 = () => {
+    gap2[4] = true;
     temp.length = 0;
     Object.keys(status5).forEach((key, index) => {
         if (status5[key]) temp.push(meshes[index]);
@@ -772,6 +719,7 @@ parameters.B1 = () => {
 };
 
 const moveD1 = () => {
+    gap2[5] = true;
     temp.length = 0;
     Object.keys(status6).forEach((key, index) => {
         if (status6[key]) temp.push(meshes[index]);
@@ -784,6 +732,7 @@ parameters.D1 = () => {
 };
 
 const moveE1 = () => {
+    gap2[6] = true;
     temp.length = 0;
     Object.keys(status7).forEach((key, index) => {
         if (status7[key]) temp.push(meshes[index]);
@@ -796,6 +745,7 @@ parameters.E1 = () => {
 };
 
 const moveM1 = () => {
+    gap2[7] = true;
     temp.length = 0;
     Object.keys(status9).forEach((key, index) => {
         if (status9[key]) temp.push(meshes[index]);
@@ -808,6 +758,7 @@ parameters.M1 = () => {
 };
 
 const moveS1 = () => {
+    gap2[8] = true;
     temp.length = 0;
     Object.keys(status8).forEach((key, index) => {
         if (status8[key]) temp.push(meshes[index]);
@@ -826,7 +777,7 @@ const moveX = () => {
     setTimeout(() => moveR(), 2000);
     setTimeout(() => {
         tempflag = false;
-    }, 2500);
+    }, 2000 + gapTime);
 };
 
 parameters.X = () => {
@@ -840,7 +791,7 @@ const moveY = () => {
     setTimeout(() => moveD1(), 2000);
     setTimeout(() => {
         tempflag = false;
-    }, 2500);
+    }, 2000 + gapTime);
 };
 
 parameters.Y = () => {
@@ -854,7 +805,7 @@ const moveZ = () => {
     setTimeout(() => moveB1(), 2000);
     setTimeout(() => {
         tempflag = false;
-    }, 2500);
+    }, 2000 + gapTime);
 };
 
 parameters.Z = () => {
@@ -868,7 +819,7 @@ const moveX1 = () => {
     setTimeout(() => moveR1(), 2000);
     setTimeout(() => {
         tempflag = false;
-    }, 2500);
+    }, 2000 + gapTime);
 };
 
 parameters.X1 = () => {
@@ -882,7 +833,7 @@ const moveY1 = () => {
     setTimeout(() => moveD(), 2000);
     setTimeout(() => {
         tempflag = false;
-    }, 2500);
+    }, 2000 + gapTime);
 };
 
 parameters.Y1 = () => {
@@ -896,7 +847,7 @@ const moveZ1 = () => {
     setTimeout(() => moveB(), 2000);
     setTimeout(() => {
         tempflag = false;
-    }, 2500);
+    }, 2000 + gapTime);
 };
 
 parameters.Z1 = () => {
@@ -923,6 +874,9 @@ let flag77 = false;
 let flag88 = false;
 let flag99 = false;
 
+const gap1 = [false, false, false, false, false, false, false, false, false];
+const gap2 = [false, false, false, false, false, false, false, false, false];
+
 let flagValue = false;
 
 let shuffleFlag = false;
@@ -941,76 +895,221 @@ const moves = {
 };
 
 document.getElementById('R').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveR();
+    console.log(gap1);
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveR();
 });
 document.getElementById('L').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveL();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveL();
 });
 document.getElementById('U').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveU();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveU();
 });
 document.getElementById('D').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveD();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveD();
 });
 document.getElementById('F').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveF();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveF();
 });
 document.getElementById('B').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveB();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveB();
 });
 document.getElementById('M').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveM();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveM();
 });
 document.getElementById('E').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveE();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveE();
 });
 document.getElementById('S').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveS();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveS();
 });
 document.getElementById('X').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveX();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveX();
 });
 document.getElementById('Y').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveY();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveY();
 });
 document.getElementById('Z').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveZ();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveZ();
 });
 document.getElementById('R1').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveR1();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveR1();
 });
 document.getElementById('L1').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveL1();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveL1();
 });
 document.getElementById('U1').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveU1();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveU1();
 });
 document.getElementById('D1').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveD1();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveD1();
 });
 document.getElementById('F1').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveF1();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveF1();
 });
 document.getElementById('B1').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveB1();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveB1();
 });
 document.getElementById('M1').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveM1();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveM1();
 });
 document.getElementById('E1').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveE1();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveE1();
 });
 document.getElementById('S1').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveS1();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveS1();
 });
 document.getElementById('X1').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveX1();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveX1();
 });
 document.getElementById('Y1').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveY1();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveY1();
 });
 document.getElementById('Z1').addEventListener('click', () => {
-    if (!flagValue && !shuffleFlag) moveZ1();
+    if (
+        !flagValue &&
+        !shuffleFlag &&
+        gap1.every((x) => !x) &&
+        gap2.every((x) => !x)
+    )
+        moveZ1();
 });
 
 document.getElementById('RC').addEventListener('click', () => {
@@ -1351,6 +1450,9 @@ const tick = () => {
         angle1 += speed;
         if (angle1 % 90.0 == 0) {
             flag1 = false;
+            setTimeout(() => {
+                gap1[0] = false;
+            }, gapTime);
         }
     }
 
@@ -1364,6 +1466,9 @@ const tick = () => {
         angle2 += speed;
         if (angle2 % 90.0 == 0) {
             flag2 = false;
+            setTimeout(() => {
+                gap1[1] = false;
+            }, gapTime);
         }
     }
 
@@ -1377,6 +1482,9 @@ const tick = () => {
         angle3 += speed;
         if (angle3 % 90.0 == 0) {
             flag3 = false;
+            setTimeout(() => {
+                gap1[2] = false;
+            }, gapTime);
         }
     }
 
@@ -1390,6 +1498,9 @@ const tick = () => {
         angle4 += speed;
         if (angle4 % 90.0 == 0) {
             flag4 = false;
+            setTimeout(() => {
+                gap1[3] = false;
+            }, gapTime);
         }
     }
 
@@ -1403,6 +1514,9 @@ const tick = () => {
         angle5 += speed;
         if (angle5 % 90.0 == 0) {
             flag5 = false;
+            setTimeout(() => {
+                gap1[4] = false;
+            }, gapTime);
         }
     }
 
@@ -1416,6 +1530,9 @@ const tick = () => {
         angle6 += speed;
         if (angle6 % 90.0 == 0) {
             flag6 = false;
+            setTimeout(() => {
+                gap1[5] = false;
+            }, gapTime);
         }
     }
 
@@ -1429,6 +1546,9 @@ const tick = () => {
         angle7 += speed;
         if (angle7 % 90.0 == 0) {
             flag7 = false;
+            setTimeout(() => {
+                gap1[6] = false;
+            }, gapTime);
         }
     }
 
@@ -1442,6 +1562,9 @@ const tick = () => {
         angle8 += speed;
         if (angle8 % 90.0 == 0) {
             flag8 = false;
+            setTimeout(() => {
+                gap1[8] = false;
+            }, gapTime);
         }
     }
 
@@ -1455,6 +1578,9 @@ const tick = () => {
         angle9 += speed;
         if (angle9 % 90.0 == 0) {
             flag9 = false;
+            setTimeout(() => {
+                gap1[7] = false;
+            }, gapTime);
         }
     }
 
@@ -1468,6 +1594,9 @@ const tick = () => {
         angle1 += speed;
         if (angle1 % 90.0 == 0) {
             flag11 = false;
+            setTimeout(() => {
+                gap2[0] = false;
+            }, gapTime);
         }
     }
 
@@ -1481,6 +1610,9 @@ const tick = () => {
         angle2 += speed;
         if (angle2 % 90.0 == 0) {
             flag22 = false;
+            setTimeout(() => {
+                gap2[1] = false;
+            }, gapTime);
         }
     }
 
@@ -1494,6 +1626,9 @@ const tick = () => {
         angle3 += speed;
         if (angle3 % 90.0 == 0) {
             flag33 = false;
+            setTimeout(() => {
+                gap2[2] = false;
+            }, gapTime);
         }
     }
 
@@ -1507,6 +1642,9 @@ const tick = () => {
         angle4 += speed;
         if (angle4 % 90.0 == 0) {
             flag44 = false;
+            setTimeout(() => {
+                gap2[3] = false;
+            }, gapTime);
         }
     }
 
@@ -1520,6 +1658,9 @@ const tick = () => {
         angle5 += speed;
         if (angle5 % 90.0 == 0) {
             flag55 = false;
+            setTimeout(() => {
+                gap2[4] = false;
+            }, gapTime);
         }
     }
 
@@ -1533,6 +1674,9 @@ const tick = () => {
         angle6 += speed;
         if (angle6 % 90.0 == 0) {
             flag66 = false;
+            setTimeout(() => {
+                gap2[5] = false;
+            }, gapTime);
         }
     }
 
@@ -1546,6 +1690,9 @@ const tick = () => {
         angle7 += speed;
         if (angle7 % 90.0 == 0) {
             flag77 = false;
+            setTimeout(() => {
+                gap2[6] = false;
+            }, gapTime);
         }
     }
 
@@ -1559,6 +1706,9 @@ const tick = () => {
         angle8 += speed;
         if (angle8 % 90.0 == 0) {
             flag88 = false;
+            setTimeout(() => {
+                gap2[8] = false;
+            }, gapTime);
         }
     }
 
@@ -1572,6 +1722,9 @@ const tick = () => {
         angle9 += speed;
         if (angle9 % 90.0 == 0) {
             flag99 = false;
+            setTimeout(() => {
+                gap2[7] = false;
+            }, gapTime);
         }
     }
 
