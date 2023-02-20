@@ -895,7 +895,6 @@ const moves = {
 };
 
 document.getElementById('R').addEventListener('click', () => {
-    console.log(gap1);
     if (
         !flagValue &&
         !shuffleFlag &&
